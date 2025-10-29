@@ -1,4 +1,4 @@
-package solutions_yeye.question7ec8;
+package solutions_yeye.question8d24;
 import java.util.Random;
 
 public class GameEngine {
@@ -19,13 +19,13 @@ public class GameEngine {
 
     // Simulate battle between two fighters, displaying how the battle
     // progresses and who wins
-    public void simulateBattle(Fighter fighter1, Fighter fighter2) {
+    public void simulateBattle(LuckyFighter fighter1, LuckyFighter fighter2) {
         log("At start of battle, stats are:");
         log(fighter1.toString());
         log(fighter2.toString());
 
         while (!fighter1.isDead() && !fighter2.isDead()) {
-            System.out.println("------------------------------");
+            log("------------------------------");
             int score1 = fighter1.calculateAttackScore();
             int score2 = fighter2.calculateAttackScore();
 
@@ -41,5 +41,7 @@ public class GameEngine {
             log(fighter1.toString());
             log(fighter2.toString());
         }
+        LuckyFighter winner = fighter1.isDead() ? fighter2 : fighter1;
+        log("End of battle, " + winner.toString() + " wins!");
     }
 }
